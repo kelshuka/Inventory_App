@@ -1,0 +1,53 @@
+
+
+
+.gameMain{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-top: 150px;
+    
+}
+
+.gameImg{
+    height: 500px;
+    width: 100%;
+    border-radius: 8px;   
+}
+
+@media (max-width: 800px){
+    .gameImg{
+        height: 400px;  
+    }
+}
+
+@media (min-width: 1200px){
+    .gameImg{
+        width: 90%;  
+    }
+}
+ 
+.makeGameChanges{
+    display: flex;
+    gap: 15px;
+}
+.update{
+   
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px 5px;
+
+}
+.delete{
+   
+    background-color: rgb(204, 72, 72);
+    color: white;
+    border-radius: 5px;
+    padding: 8px 5px;
+
+}
+
+a {
+    text-decoration: none;
+}
+

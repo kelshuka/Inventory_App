@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %> </title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/genre.css">
+    </head>
+    <body>
+        
+        <div class="container">
+            <header>
+                <div class="headCont">
+                    <%- include('headerFooter/header') %>
+                </div>
+            </header>
+
+            <main class="genresMain" id="genresMain" aria-labelledby='genresMain'>
+                <h1 class="genresTitle"> <%= title %> </h1>
+                <% if (genres.length !== 0) {%>
+                    <ul class="allGenres">
+                        <% genres.forEach(genre => {%>
+                            <li class="genreCard">
+                                <img src="<%= genre.img %>" alt="<%= genre.name %> " class="genreImg">
+                                <a href="/genres/<%= genre.id %>" class="genreName"> <%= genre.name %> </a>
+
+                                <div class="makeGenreChanges" style="padding-top: 10px;">
+                                    <button class="update" id="updateGenre" aria-labelledby='updateGenre'> <a href="/genres/<%= genre.id %>/update"> Update Genre</a> </button> 
+                                    <button class="delete" id="deleteGenre" aria-labelledby='deleteGenre'> <a href="/genres/<%= genre.id %>/delete"> Delete Genre</a> </button>
+                                </div>
+                            </li>
+                        <% }) %>
+                    </ul>
+                <%} %>
+                <% if (genres.length == 0) {%>
+                    <section>No genres found!</section>
+                <%} %>
+            </main>
+
+            <%- include('headerFooter/footer') %>
+        </div>
+        
+    </body>
+</html>

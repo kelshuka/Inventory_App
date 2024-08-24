@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %> </title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/game.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <header>
+                <div class="headCont">
+                    <%- include('headerFooter/header') %>
+                </div>
+            </header>
+
+            <main class="gameMain">
+                <div>
+                    <img src = "<%= game.img %>" alt="<%= game.name %>" class="gameImg"/>
+                </div>
+                <div class="gameInfo">
+                    <h2> <%= game.name %></h2>
+                    <p> <%= game.genre %> </p>
+                    <p> <%= game.description %> </p>
+                    <p style="font-weight: bold; font-size: 18px;"> $ <%= game.price %> </p>
+                    <p> <span style="font-weight: bold;"> Rating: </span> <%= game.rating %> </p>
+                    <p> <span style="font-weight: bold;"> Publisher: </span> <%= game.publisher %> </p>
+                    <p> <span style="font-weight: bold;">
+                        publishing Date: </span> <%= game.publishingDate %> </p>
+                    <p> <span style="font-weight: bold;"> 
+                        Quantity Available : </span> <%= game.quantity %> </p>
+                    <div class="makeGameChanges">
+                       <button class="update"> <a href="/games/<%= game.id %>/update"> Update Game</a> </button> 
+                        <button class="delete"> <a href="/games/<%= game.id %>/delete"> Delete Game</a> </button>
+                    </div>
+                </div>
+                
+            </main>
+
+            <%- include('headerFooter/footer') %>
+        </div>
+
+       
+    </body>
+</html>

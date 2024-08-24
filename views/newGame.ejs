@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> <%= title %> </title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="headCont">
+                    <%- include('headerFooter/header') %>
+                </div>
+            </header>
+
+            <main class="newGameMain" id="newGameMain" aria-labelledby='newGameMain'>
+                <form action="/newGame" method="POST">
+
+                    <% if (locals.errors) { %>
+                        <ul class="errorMsg">
+                            <% errors.forEach(error => { %>
+                                <li>
+                                    <%= error.msg %>
+                                </li>
+                            <% }); %>
+                        </ul>
+                    <% } %>
+
+                    <label for="name">Name of Game:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="imgURL">Image URL:</label>
+                    <input type="text" id="imgURL" name="imgURL" required>
+
+                    <label for="description">Describe Game:</label>
+                    <input type="text" id="description" name="description">
+
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="prices" required>
+
+                    <label for="rating">Rating of Game:</label>
+                    <input type="number" id="rating" name="rating" step=".01" required>
+
+                    <label for="publisher">Publisher:</label>
+                    <input type="text" id="publisher" name="publisher" required>
+
+                    <label for="pubDate">Publishing Date:</label>
+                    <input type="date" id="pubDate" name="publishingDate" required>
+
+                    <label for="quanti">Quantity in Stock:</label>
+                    <input type="number" id="quanti" name="quantity" required>
+
+                    <label for="genre">Genre:</label>
+                    <input type="text" id="genre" name="genre" required>
+
+                    <label for="passWord">Password:</label>
+                    <input type="password" id="passWord" name="password" required>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </main>
+
+            <%- include('headerFooter/footer') %>
+        </div>
+            
+        
+    </body>
+</html>
